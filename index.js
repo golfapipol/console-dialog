@@ -51,7 +51,7 @@ module.exports = (text = ``, width = 0) => {
 	
 	this.append = (msg, opt) => {
 		opt = appendOptions(opt)
-		if(typeof msg === 'string') msg = msg.split(`\n`)
+		if(typeof msg === `string`) msg = msg.split(`\n`)
 		try {
 			if(msg instanceof Array) {
 				for(let i in msg) { msg[i] = `${opt.prefix || ``}${msg[i]}${opt.suffix || ``}` }
@@ -83,11 +83,13 @@ module.exports = (text = ``, width = 0) => {
 	}
 	
 	this.width = (width) => {
-		if(isNaN(width)) console.error(`Box width must be a number`)
-		else {
-			if(typeof width === 'string') width = parseInt(width)
-			if(width > 0) settings.width = width
-			else console.error(`Box width must be positive number and cannot be zero.`)
+		if(isNaN(width)) {
+			if(typeof width === `dynamic`)  dialogWidth = 0
+			else console.error(`Invalid width options.`)
+		} else {
+			if(typeof width === `string`) width = parseInt(width)
+			if(width >= 0) settings.width = width? width: components.defaultSettings.width
+			else console.error(`Box width must not less than 0.`)
 		}
 		
 		
@@ -115,7 +117,7 @@ module.exports = (text = ``, width = 0) => {
 		lineStyle = style(opt)
 		
 		if(isNaN(opt.width)) dialogWidth = settings.width? settings.width: components.defaultSettings.width
-		else dialogWidth = typeof opt.width === 'string'? parseInt(opt.width): opt.width
+		else dialogWidth = typeof opt.width === `string`? parseInt(opt.width): opt.width
 		if(typeof opt.width === `undefined`) opt.width = dialogWidth ? undefined : `dynamic`
 		
 		if(opt.width === `dynamic` || dialogWidth === 0) {
@@ -270,7 +272,7 @@ module.exports = (text = ``, width = 0) => {
 	
 	const appendOptions = (opt) => {
 		let append = { type: `text`, append: true, prefix: ``, suffix: `` }
-		if(typeof opt === 'object') {
+		if(typeof opt === `object`) {
 			for(const k in opt) {
 				switch(k) {
 					case `align`:
