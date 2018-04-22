@@ -1,6 +1,6 @@
 {
   "name": "console-dialog",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create a message dialog in node",
   "main": "index.js",
   "directories": {
@@ -15,11 +15,11 @@
   },
   "keywords": [
     "dialog",
-	"box",
-	"console",
-	"log",
-	"node",
-	"javascript"
+    "box",
+    "console",
+    "log",
+    "node",
+    "javascript"
   ],
   "author": "Peeradach Laortum",
   "license": "MIT",
