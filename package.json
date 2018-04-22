@@ -15,7 +15,11 @@
   },
   "keywords": [
     "dialog",
-    "console"
+	"box",
+	"console",
+	"log",
+	"node",
+	"javascript"
   ],
   "author": "Peeradach Laortum",
   "license": "MIT",
