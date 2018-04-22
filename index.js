@@ -84,7 +84,7 @@ module.exports = (text = ``, width = 0) => {
 	
 	this.width = (width) => {
 		if(isNaN(width)) {
-			if(typeof width === `dynamic`)  dialogWidth = 0
+			if(width === `dynamic`)  dialogWidth = 0
 			else console.error(`Invalid width options.`)
 		} else {
 			if(typeof width === `string`) width = parseInt(width)
