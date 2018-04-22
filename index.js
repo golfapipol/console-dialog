@@ -87,7 +87,7 @@ module.exports = (text = ``, width = 0) => {
 			if(width === `dynamic`)  dialogWidth = 0
 			else console.error(`Invalid width options.`)
 		} else {
-			if(typeof width === `string`) width = parseInt(width)
+			if(typeof width === `string`) width = width != ``? parseInt(width): 0
 			if(width >= 0) settings.width = width? width: components.defaultSettings.width
 			else console.error(`Box width must not less than 0.`)
 		}
