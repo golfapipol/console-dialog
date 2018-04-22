@@ -80,6 +80,31 @@ console.log(dialog.render({corner: 'round'}));
 ╰────────────────────────────────────────╯
 */
 
+dialog = consoleDialog();
+dialog.append(`the length of this message is greater than the width of the dialog.`);
+dialog.append(`so it's got wrapped down to a new line.`);
+console.log(dialog.render({width: 24}));
+/**
+ ┌─────────────────────────┐
+ │ the length of this mess │
+ │ age is greater than the │
+ │  width of the dialog.   │
+ │ so it's got wrapped dow │
+ │ n to a new line.        │
+ └─────────────────────────┘
+ */
+
+dialog.header(`but the dynamic-width option will make dialog more flexible up to the messages`)
+console.log(dialog.render({width: `dynamic`}));
+/**
+ ╒════════════════════════════════════════════════════════════════════════════════╕
+ │ but the dynamic-width option will make dialog more flexible up to the messages │
+ ╞════════════════════════════════════════════════════════════════════════════════╡
+ │ the length of this message is greater than the width of the dialog.            │
+ │ so it's got wrapped down to a new line.                                        │
+ └────────────────────────────────────────────────────────────────────────────────┘
+ */
+
 ```
 
 ## Dialog Options
@@ -95,10 +120,10 @@ console.log(dialog.render({corner: 'round'}));
 - Conditions: `"round"` - Dialog must not have header or footer
 
 ### Dialog width
-###### `dynamicWidth`  -  Enable flexible width based on maximum length of lines.
-- Default: `true`
-- Values: `true` , `false`
-- Conditions: `true` - The maximum length of lines must be greater than the declared dialog width.
+###### `width`  -  Enable flexible width based on maximum length of lines.
+- Default: `dynamic`
+- Values: `dynamic`
+- Conditions: `dynamic` - The maximum length of lines must be greater than the declared dialog width.
 
 ### Text alignment
 ###### `align`  -  Align appended lines in the dialog.
